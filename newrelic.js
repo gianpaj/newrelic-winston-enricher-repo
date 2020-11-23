@@ -20,7 +20,20 @@ exports.config = {
      * issues with the agent, 'info' and higher will impose the least overhead on
      * production applications.
      */
-    level: 'info',
+    level: 'trace',
+    diagnostics: true
+  },
+  audit_log: {
+
+    /**
+     * Enables logging of out bound traffic from the Agent to the Collector.
+     * This field is ignored if trace level logging is enabled.
+     * With trace logging, all traffic is logged.
+     *
+     * @env NEW_RELIC_AUDIT_LOG_ENABLED
+     */
+    enabled: true
+  },
   distributed_tracing: {
     enabled: true
   },
@@ -44,7 +57,6 @@ exports.config = {
       'request.headers.authorization',
       'request.headers.proxyAuthorization',
       'request.headers.setCookie*',
-      'request.headers.x*',
       'response.headers.cookie',
       'response.headers.authorization',
       'response.headers.proxyAuthorization',
