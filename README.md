@@ -1,5 +1,21 @@
 # newrelic-winston-enricher-repo
 
+## Found the issue!
+
+"Distributed tracing" needs to be enabled!
+
+https://github.com/newrelic/node-newrelic/blob/5b3a20438584825dff40e78d8ab4a1b5ba192476/lib/transaction/index.js#L464-L466
+
+
+`newrelic.js`
+```json
+distributed_tracing: {
+    enabled: true
+  },
+```
+
+---
+
 project to reproduce the [issue - discuss.newrelic.com](https://discuss.newrelic.com/t/newrelic-winston-enricher-doesnt-add-span-id-or-trace-id-info/122201)
 
 Package: <https://github.com/newrelic/newrelic-winston-logenricher-node> `v1.0.0`
