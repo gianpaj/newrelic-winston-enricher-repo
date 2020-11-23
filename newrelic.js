@@ -21,6 +21,8 @@ exports.config = {
      * production applications.
      */
     level: 'info',
+  distributed_tracing: {
+    enabled: true
   },
   /**
    * When true, all request headers except for those listed in attributes.exclude
